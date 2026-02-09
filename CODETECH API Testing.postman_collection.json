@@ -1,0 +1,43 @@
+{
+  "info": {
+    "_postman_id": "12345678-abcd-4321-efgh-987654321000",
+    "name": "CODETECH API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"mor_2314\",\n  \"password\": \"83r5^_\"\n}"
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/auth/login",
+          "protocol": "https",
+          "host": ["fakestoreapi", "com"],
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "GET Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://fakestoreapi.com/products",
+          "protocol": "https",
+          "host": ["fakestoreapi", "com"],
+          "path": ["products"]
+        }
+      }
+    }
+  ]
+}
