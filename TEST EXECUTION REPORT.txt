@@ -1,0 +1,27 @@
+TEST EXECUTION REPORT
+
+Company: CODTECH IT SOLUTIONS  
+Intern Name: Kandepu Dhana Lakshmi  
+Intern ID: CTIS5249
+Task: Postman Task-2  
+Tool Used: Postman
+
+Test Case 1: POST Login API  
+Steps:
+1. Open Postman
+2. Import collection
+3. Send POST request to Login endpoint
+4. Check status code and response body
+Result:
+Login success confirmed  
+Status:
+PASS
+
+Test Case 2: GET Users API  
+Steps:
+1. Send GET request to Users endpoint
+2. Validate returned data
+Result:
+User data retrieved successfully  
+Status:
+PASS
