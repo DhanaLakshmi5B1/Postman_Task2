@@ -1,43 +1,168 @@
 {
   "info": {
-    "_postman_id": "12345678-abcd-4321-efgh-987654321000",
+    "_postman_id": "6e026e56-53a7-4e96-b0bc-cc235cca42d0",
     "name": "CODETECH API Testing",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52207313",
+    "_collection_link": "https://go.postman.co/collection/52207313-6e026e56-53a7-4e96-b0bc-cc235cca42d0?source=collection_link"
   },
   "item": [
     {
-      "name": "POST Login",
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/auth/login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Token is generated\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.token).to.exist;\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "POST",
         "header": [
           {
             "key": "Content-Type",
-            "value": "application/json"
+            "value": "application/json",
+            "type": "text"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"username\": \"mor_2314\",\n  \"password\": \"83r5^_\"\n}"
+          "raw": "{\r\n  \"username\": \"mor_2314\",\r\n  \"password\": \"83r5^_\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
         "url": {
           "raw": "https://fakestoreapi.com/auth/login",
           "protocol": "https",
-          "host": ["fakestoreapi", "com"],
-          "path": ["auth", "login"]
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
         }
-      }
+      },
+      "response": []
     },
     {
-      "name": "GET Products",
+      "name": "https://fakestoreapi.com/products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is an array\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.be.an(\"array\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "GET",
+        "header": [],
         "url": {
           "raw": "https://fakestoreapi.com/products",
           "protocol": "https",
-          "host": ["fakestoreapi", "com"],
-          "path": ["products"]
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products"
+          ]
         }
-      }
+      },
+      "response": []
     }
   ]
 }
