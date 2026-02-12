@@ -1,27 +1,49 @@
 TEST EXECUTION REPORT
 
-Company: CODTECH IT SOLUTIONS  
-Intern Name: Kandepu Dhana Lakshmi  
+Company: CODTECH IT SOLUTIONS
+Intern Name: Kandepu Dhana Lakshmi
 Intern ID: CTIS5249
-Task: Postman Task-2  
-Tool Used: Postman
+Task: API Testing with Postman (Task-2)
 
-Test Case 1: POST Login API  
-Steps:
-1. Open Postman
-2. Import collection
-3. Send POST request to Login endpoint
-4. Check status code and response body
-Result:
-Login success confirmed  
+Tool Used: Postman
+API Type: RESTful API
+
+--------------------------------
+Test Case 1: Authentication API
+--------------------------------
+Method: POST
+Endpoint: https://fakestoreapi.com/auth/login
+
+Test Steps:
+1. Sent POST request with valid username and password
+2. Added Content-Type as application/json in Headers
+3. Verified authentication token in response body
+
+Expected Result:
+Authentication token should be generated
+
+Actual Result:
+Token received successfully
+
 Status:
 PASS
 
-Test Case 2: GET Users API  
-Steps:
-1. Send GET request to Users endpoint
-2. Validate returned data
-Result:
-User data retrieved successfully  
+--------------------------------
+Test Case 2: Data Retrieval API
+--------------------------------
+Method: GET
+Endpoint: https://fakestoreapi.com/products
+
+Test Steps:
+1. Sent GET request to retrieve product data
+2. Verified response status code 200
+3. Validated product details in response body
+
+Expected Result:
+Product data should be retrieved successfully
+
+Actual Result:
+Product data retrieved successfully
+
 Status:
 PASS
